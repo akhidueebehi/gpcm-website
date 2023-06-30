@@ -6,20 +6,17 @@ import "./globals.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import aboutImage from "../public/images/aboutImage.jpg";
-import update1 from "../public/images/update1.jpeg";
-import update2 from "../public/images/update2.jpeg";
-import update3 from "../public/images/update3.jpeg";
-import update4 from "../public/images/update4.jpeg";
+import update1 from "../public/images/update1.jpg";
 import miracleJesusBenin from "../public/images/miracleJesusBenin.jpg";
 import miracleJesusLagos from "../public/images/miracleJesusLagos.jpg";
 import smbc from "../public/images/smbc.jpg";
 import sunOfTrans from "../public/images/sundaysoftransformation.jpg";
-import prophet from "../public/images/Prophet-Isaiah-Wealth.jpeg";
+import prophet from "../public/images/Prophet-Isaiah-Wealth.jpg";
 import hip from "../public/images/hip.png";
 import g20 from "../public/images/g20.jpg";
-import bookImg from "../public/images/bookImage.jpeg";
-import bookImg2 from "../public/images/bookImage2.jpeg";
-import bookImg3 from "../public/images/bookImage3.jpeg";
+import bookImg from "../public/images/bookImage.jpg";
+import bookImg2 from "../public/images/bookImage2.jpg";
+import bookImg3 from "../public/images/bookImage3.jpg";
 import { BsFacebook } from "react-icons/bs";
 import { BsTwitter } from "react-icons/bs";
 import { BsYoutube } from "react-icons/bs";
@@ -126,6 +123,7 @@ export default function Home() {
         <div
           data-aos="fade-up"
           data-aos-duration="800"
+          data-aos-delay="0"
           className="z-50 mt-5 absolute w-full text-[1.55rem] leading-relaxed px-4 text-white flex justify-center items-start text-left flex-col h-full"
         >
           <div

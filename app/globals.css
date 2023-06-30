@@ -29,7 +29,7 @@ html, body{
  font-family: var(--head-font), sans-serif !important;
 }
 .heroSection2 {
- background:  url("../public/images/experience2.png");
+ background:  url("../public/images/experience2.jpg");
  background-position: center;
  background-size: cover;
  @apply relative;
