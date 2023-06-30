@@ -167,12 +167,12 @@ export default function Home() {
           data-aos-duration="800"
         >
           {" "}
-          Gospel Pillars Ministry is an arm of Isaiah Wealth Ministries formed
-          to establish, run and regulate the activities of the church arm Gospel
-          Pillars International Churches. The ministry is active in church
-          planting in almost every continent of the world, and continues to
-          raise, equip and sponsor missionaries to unreached parts of the world
-          through its Mission Assisted Project (MAP).
+          Gospel Pillars Campus Ministry is an arm of Isaiah Wealth Ministries
+          formed to establish fellowships on Campuses. The vision of this arm is
+          for students on Campus to "Turn Many unto righteousness while
+          maintaining academic excellence". We run various schemes such as A's
+          and B's for Jesus and the You Genius Club that further equips students
+          for academics and the society.
         </div>
       </div>
 
@@ -197,14 +197,8 @@ export default function Home() {
             data-aos="fade-up"
             data-aos-duration="800"
           >
-            <div className="text-white text-[1.2rem] font-bold pb-2">
-              JUL 4
-            </div>
-            <Image
-              src={smbc}
-              alt="update4"
-              className="updateImg"
-            />
+            <div className="text-white text-[1.2rem] font-bold pb-2">JUL 4</div>
+            <Image src={smbc} alt="update4" className="updateImg" />
           </div>
           <div
             className="max-w-[80%] mb-16"
