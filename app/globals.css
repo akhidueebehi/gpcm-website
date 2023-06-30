@@ -2,26 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+*, *::before, *::after{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --body-font: "Poppins";
+  --head-font: "Raleway";
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html, body{
+  font-family: var(--body-font), sans-serif !important;
+  overflow-x: hidden;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+.heroSection {
+ background:  url("../public/images/heroImg.jpg");
+ background-position: center;
+ background-size: cover;
+ @apply relative;
+ font-family: var(--head-font), sans-serif !important;
+}
+.heroSection2 {
+ background:  url("../public/images/experience2.png");
+ background-position: center;
+ background-size: cover;
+ @apply relative;
+ font-family: var(--head-font), sans-serif !important;
+}
+
+.monts{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.overlay {
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 75%, rgba(255,255,255,0) 100%);
+  @apply absolute;
+}
+
+.ham1Open {
+  @apply bg-white w-7 h-[3px] my-[3px] rounded rotate-[45deg] transition-all duration-300 translate-y-[5px];
+}
+.ham2Open {
+  @apply opacity-0 transition-all duration-300;
+}
+.ham3Open {
+  @apply bg-white w-7 h-[3px] my-[3px] rounded -rotate-[45deg] transition-all duration-300 -translate-y-[4px];
+}
+.aboutImg {
+  filter: drop-shadow(-5px 5px 11px #000);
+}
+.updateSection {
+  background-image: url("../public/images/updatebg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll;
+}
+.updateImg {
+  filter: drop-shadow(-5px 5px 11px #000);
+}
+.worshipWithUs {
+  background-image: url("../public/images/joinusImg.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.prophetImg {
+  filter: drop-shadow(-2px 2px 7px #000);
+}
+.latestResources {
+  background-image: url("../public/images/latestResources.jpg");
+  background-size: cover;
+  background-position: center;
 }
