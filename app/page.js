@@ -41,13 +41,13 @@ export default function Home() {
   }, []);
   return (
     <main className="relative overflow-hidden">
-      <div className="header monts w-full absolute top-0 py-4 px-4 z-30">
+      <div className="header monts w-full absolute top-0 py-[24px] px-[5vw] z-30">
         <div className="flex w-full justify-between items-center">
-          <div className="nav-brand w-[148px] z-50">
-            <Image src="/images/gpcfLogo.png" height={37} width={180} />
+          <div className="nav-brand w-[148px] h-[37px] md:w-[216px] md:h-[52px] xl:w-[280px] xl:h-[72px] z-50 relative">
+            <Image src="/images/gpcfLogo.png" fill alt="gpcfLogo" />
           </div>
           <div
-            className="Hamburger flex flex-col relative z-50"
+            className="Hamburger lg:hidden flex flex-col relative z-50"
             onClick={() => {
               setHamOpen(!hamOpen);
             }}
@@ -75,15 +75,13 @@ export default function Home() {
             ></div>
           </div>
           <div
-            className={
-              hamOpen
-                ? "menu text-white absolute right-[0] flex flex-col w-[100%] h-[100vh] top-0 text-xl py-[18vh] bg-[rgba(0,0,0,0.9)] transition-all duration-300"
-                : "menu text-white absolute right-[100%] flex flex-col w-[100%] h-[100vh] top-0 text-xl py-[18vh] bg-[rgba(0,0,0,0.9)] transition-all duration-300"
-            }
+            className={`menu text-white absolute lg:right-[5vw] flex flex-col lg:flex-row w-[100%] lg:w-auto h-[100vh] lg:h-auto top-0 text-xl py-[18vh] lg:py-[24px] bg-[rgba(0,0,0,0.9)] lg:bg-transparent transition-all duration-300 ${
+              hamOpen ? "right-[0]" : "right-[100%]"
+            }`}
           >
             <Link
               href="/"
-              className="border-b border-[rgba(255,255,255,0.1)] py-5 px-5 border-t"
+              className="border-b-5 border-[rgba(255,255,255,0.1)] lg:border-t-0 lg:border-b-0 lg:hover:border-b-[4px] lg:border-white py-5 px-5 lg:py-0 lg:px-0 lg:mx-5 lg:my-5 border-t"
               onClick={() => setHamOpen(false)}
             >
               {" "}
@@ -91,7 +89,7 @@ export default function Home() {
             </Link>
             <Link
               href="#about"
-              className="border-b border-[rgba(255,255,255,0.1)] py-5 px-5"
+              className="border-b border-[rgba(255,255,255,0.1)] lg:border-t-0 lg:border-b-0 lg:hover:border-b-[4px] lg:border-white lg:py-0 lg:px-0 lg:mx-5 lg:my-5 py-5 px-5"
               onClick={() => setHamOpen(false)}
             >
               {" "}
@@ -100,7 +98,7 @@ export default function Home() {
 
             <Link
               href="/chapters"
-              className="border-b border-[rgba(255,255,255,0.1)] py-5 px-5"
+              className="border-b border-[rgba(255,255,255,0.1)] lg:border-t-0 lg:border-b-0 lg:hover:border-b-[4px] lg:border-white lg:py-0 lg:px-0 lg:mx-5 lg:my-5 py-5 px-5"
               onClick={() => setHamOpen(false)}
             >
               {" "}
@@ -108,7 +106,7 @@ export default function Home() {
             </Link>
             <Link
               href="#contact"
-              className="border-b border-[rgba(255,255,255,0.1)] py-5 px-5"
+              className="border-b border-[rgba(255,255,255,0.1)] lg:border-t-0 lg:border-b-0 lg:hover:border-b-[4px] lg:border-white lg:py-0 lg:px-0 lg:mx-5 lg:my-5 py-5 px-5"
               onClick={() => setHamOpen(false)}
             >
               {" "}
@@ -118,80 +116,90 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="heroSection relative h-[60vh] z-0">
+      <div className="heroSection relative h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[100vh] z-0">
         <div className="overlay w-full h-full z-10"></div>
         <div
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="0"
-          className="z-50 mt-5 absolute w-full text-[1.55rem] leading-relaxed px-4 text-white flex justify-center items-start text-left flex-col h-full"
+          className="z-50 mt-5 absolute w-full text-[1.55rem] leading-relaxed px-[5vw] text-white flex justify-center items-start text-left flex-col h-full"
         >
           <div
-            className={`${greatVibes.className} leading-tight -mb-1 text-[2.65rem] `}
+            className={`${greatVibes.className} leading-tight -mb-1 text-[42px] md:text-[48px]`}
           >
             Welcome to
           </div>
-          <div className="monts font-semibold">GOSPEL PILLARS</div>
-          <div className="monts font-semibold">CAMPUS MINISTRY</div>
+          <div className="monts text-[25px] md:text-[36px] leading-tight font-semibold">
+            GOSPEL PILLARS
+          </div>
+          <div className="monts text-[25px] md:text-[36px] leading-tight font-semibold">
+            CAMPUS MINISTRY
+          </div>
 
           <Link href={"/chapters"}>
-            <div className="find monts text-xs border-2 border-white text-center px-4 py-2 mt-8 -mb-8">
+            <div className="find monts text-xs md:text-[14px] xl:text-[18px] border-2 border-white hover:bg-white hover:text-black transition-all duration-150 text-center px-4 md:px-[20px] xl:px-[24px] py-2 md:py-[12px] xl:py-[16px] mt-8 -mb-8">
               FIND A FELLOWSHIP
             </div>
           </Link>
         </div>
       </div>
-      <div className="About flex flex-col bg-[#252525] px-5 " id="about">
+      <div
+        className="About flex flex-col md:flex-row-reverse bg-[#252525] px-[5vw] md:pl-0 md:pr-[5vw] xl:pr-[8vw] py-8 md:py-[5vw]"
+        id="about"
+      >
         <div
-          className="w-full flex justify-end mt-14 -mb-12"
+          className="w-full flex md:w-[40vw] justify-end -mb-12 md:mb-0 md:items-center md:justify-center md:flex"
           data-aos="fade-up"
           data-aos-duration="800"
         >
           <Image
             src={aboutImage}
             alt="aboutImage"
-            className="aboutImg w-[40%] h-[20vh]"
+            className="aboutImg w-[40vw] xl:w-[500px] xl:h-[500px] h-[35vw]"
           />
         </div>
-        <div
-          className="font-bold text-left text-[2.1rem] leading-tight text-white py-5 max-w-[10px]"
-          data-aos="fade-up"
-          data-aos-duration="800"
-        >
-          {" "}
-          OUR STORY{" "}
-        </div>
-        <div
-          className="border-t-2 mb-14 text-[0.935rem] border-[#efd142] content py-5 leading-loose text-justify text-white"
-          data-aos="fade-up"
-          data-aos-duration="800"
-        >
-          {" "}
-          Gospel Pillars Campus Ministry is an arm of Isaiah Wealth Ministries
-          formed to establish fellowships on Campuses. The vision of this arm is
-          for students on Campus to "Turn Many unto righteousness while
-          maintaining academic excellence". We run various schemes such as A's
-          and B's for Jesus and the You Genius Club that further equips students
-          for academics and the society.
+        <div className="w-full md:w-[60vw] md:mr-[5vw]">
+          <div
+            className="font-bold text-left text-[2.1rem] md:text-[44px] lg:text-[56px] xl:text-[60px] leading-tight text-white py-5 max-w-[10px] md:ml-[5vw] xl:ml-[8vw] md:max-w-max"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            {" "}
+            OUR STORY{" "}
+          </div>
+          <div className="bg-[#efd142] w-full h-[3px]"></div>
+          <div
+            className="mb-14 text-[0.935rem] md:text-[16px] xl:text-[18px] xl:leading-relaxed md:ml-[5vw] xl:ml-[8vw] content py-5 leading-loose text-justify text-white"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            {" "}
+            Gospel Pillars Campus Ministry is an arm of Isaiah Wealth Ministries
+            formed to establish fellowships on Campuses. The vision of this arm
+            is for students on Campus to "Turn Many unto righteousness while
+            maintaining academic excellence". We run various schemes such as A's
+            and B's for Jesus and the You Genius Club that further equips
+            students for academics and the society.
+          </div>
         </div>
       </div>
 
       <div className="updateSection w-full pb-44">
         <div
-          className="pl-6 pt-10 mr-6 pb-6 border-b-2 border-[#efd142]"
+          className="pl-[5vw] pt-8 md:pt-[5vw] xl:pl-[8vw] mr-6 pb-6 border-b-[3px] border-[#efd142]"
           data-aos="fade-up"
           data-aos-duration="800"
         >
-          <div className="text-[#efd142] text-[1.05rem] font-bold">
+          <div className="text-[#efd142] md:leading-tight text-[1.05rem] md:text-[20px] lg:text-[26px] xl:text-[30px] font-bold">
             {" "}
             WHAT'S HAPPENING{" "}
           </div>
-          <div className="text-white text-[2.1rem] font-bold max-w-[10px] leading-tight">
+          <div className="text-white text-[2.1rem] md:text-[44px] lg:text-[56px] xl:text-[60px] font-bold max-w-[10px] md:max-w-max leading-tight">
             {" "}
             FEATURED EVENTS{" "}
           </div>
         </div>
-        <div className="flex flex-col items-center my-16 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-items-center items-center my-16 ">
           <div
             className="max-w-[80%] mb-16"
             data-aos="fade-up"
@@ -251,7 +259,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-center bg-[#f6f6f6] pb-14 text-[#252525]">
+      <div className="flex flex-col items-center justify-center bg-[#f6f6f6] pb-8 md:pb-[5vw] text-[#252525]">
         <div
           className="max-w-[80%] -mt-36 prophetImg"
           data-aos="fade-up"
@@ -261,14 +269,14 @@ export default function Home() {
         </div>
         <div className="py-10 pb-6 px-4">
           <div
-            className="font-bold text-2xl text-center monts "
+            className="font-bold text-2xl lg:text-[28px] text-center monts"
             data-aos="fade-up"
             data-aos-duration="800"
           >
             DR. ISAIAH MACWEALTH
           </div>
           <div
-            className={`${greatVibes.className}  font-bold text-2xl text-center`}
+            className={`${greatVibes.className}  font-bold text-2xl lg:text-[28px] text-center`}
             data-aos="fade-up"
             data-aos-duration="800"
           >
@@ -277,7 +285,7 @@ export default function Home() {
         </div>
 
         <div
-          className="mx-4 text-justify border-t-2 border-t-[#efd142] pt-8"
+          className="mx-[5vw] text-justify lg:text-[16px] xl:text-[18px] border-t-[3px] border-t-[#efd142] pt-8"
           data-aos="fade-up"
           data-aos-duration="800"
         >
@@ -291,7 +299,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="worshipWithUs w-full h-[50vh] text-white text-center flex flex-col items-center justify-center gap-4 px-4">
+      <div className="worshipWithUs w-full h-[50vh] md:h-[60vh] lg:h-[70vh] xl:h-[80vh] text-white text-center flex flex-col items-center justify-center gap-4 px-4">
         <div
           className="font-semibold text-[1.72rem] monts"
           data-aos="fade-up"
@@ -299,18 +307,22 @@ export default function Home() {
         >
           {" "}
           <span
-            className={`${greatVibes.className} text-5xl -mb-12 block text-[#efd142]`}
+            className={`${greatVibes.className} text-5xl xl:text-[60px] -mb-12 block text-[#efd142]`}
           >
             Join us{" "}
           </span>{" "}
           <br /> Every Sunday{" "}
         </div>
-        <div className="text-lg" data-aos="fade-up" data-aos-duration="800">
+        <div
+          className="text-lg xl:text-[20px]"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
           {" "}
           <span className="text-[#efd142]">@</span> Our Various Locations{" "}
         </div>
         <a
-          className="border-2 p-5 mt-6"
+          className="border-2 p-5 mt-6 xl:text-[18px] hover:bg-white hover:text-black"
           data-aos="fade-up"
           data-aos-duration="800"
         >
@@ -319,9 +331,9 @@ export default function Home() {
         </a>
       </div>
 
-      <div className="youGenius py-14 px-4 bg-[#f6f6f6] text-[#252525]">
+      <div className="partner py-8 md:py-[5vw] px-[5vw] bg-[#f6f6f6] text-[#252525]">
         <div
-          className="pb-5 text-[1.9rem] font-bold w-full leading-tight"
+          className="pb-5 text-[1.9rem] xl:text-[38px] font-bold w-full leading-tight"
           data-aos="fade-up"
           data-aos-duration="800"
         >
@@ -329,7 +341,7 @@ export default function Home() {
           BECOME A PARTNER{" "}
         </div>
         <div
-          className="border-t-2 mb-14 text-[0.935rem] border-[#efd142] content py-5 leading-loose text-justify"
+          className="border-t-2 mb-14 text-[0.935rem] xl:text-[18px] border-[#efd142] content py-5 leading-loose text-justify"
           data-aos="fade-up"
           data-aos-duration="800"
         >
@@ -339,58 +351,60 @@ export default function Home() {
           would be positioned to do even bigger things with God
         </div>
 
-        <div
-          className="flex flex-col items-center justify-center text-center gap-4 shadow-2xl py-8 px-4 rounded-lg"
-          data-aos="fade-up"
-          data-aos-duration="800"
-        >
-          <div>
-            <Image src={hip} alt="hip" />
-          </div>
-          <div className="font-bold"> HIP </div>
-          <div className="text-sm leading-loose">
-            {" "}
-            Higher Impact Partnership (HIP) is a financial commitment towards
-            the spread of the gospel of Jesus Christ all around the world.{" "}
-          </div>
-          <a
-            className="border border-[#252525] py-4 px-6 mt-5"
-            href="https://higherimpactvision.com/"
-            target="_blank"
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div
+            className="flex flex-col items-center justify-center text-center gap-4 shadow-2xl py-8 px-4 rounded-lg"
+            data-aos="fade-up"
+            data-aos-duration="800"
           >
-            {" "}
-            Learn More{" "}
-          </a>
-        </div>
+            <div>
+              <Image src={hip} alt="hip" />
+            </div>
+            <div className="font-bold"> HIP </div>
+            <div className="text-sm leading-loose">
+              {" "}
+              Higher Impact Partnership (HIP) is a financial commitment towards
+              the spread of the gospel of Jesus Christ all around the world.{" "}
+            </div>
+            <a
+              className="border border-[#252525] py-4 px-6 mt-5 hover:bg-gray-500 hover:border-gray-500 hover:text-white"
+              href="https://higherimpactvision.com/"
+              target="_blank"
+            >
+              {" "}
+              Learn More{" "}
+            </a>
+          </div>
 
-        <div
-          className="flex flex-col items-center justify-center text-center gap-4 shadow-2xl py-8 px-4 mt-12 mb-16 rounded-lg"
-          data-aos="fade-up"
-          data-aos-duration="800"
-        >
-          <div>
-            <Image src={g20} alt="g20" />
-          </div>
-          <div className="font-bold"> G20 </div>
-          <div className="text-sm leading-loose">
-            {" "}
-            These also are the chief of the mighty men whom David had, who
-            strengthened themselves with him in his kingdom{" "}
-          </div>
-          <a
-            className="border border-[#252525] py-4 px-6 mt-5"
-            href="http://isaiahwealthministries.org/g20"
-            target="_blank"
+          <div
+            className="flex flex-col items-center justify-center text-center gap-4 shadow-2xl py-8 px-4 mt-12 mb-16 rounded-lg"
+            data-aos="fade-up"
+            data-aos-duration="800"
           >
-            {" "}
-            Learn More{" "}
-          </a>
+            <div>
+              <Image src={g20} alt="g20" />
+            </div>
+            <div className="font-bold"> G20 </div>
+            <div className="text-sm leading-loose">
+              {" "}
+              These also are the chief of the mighty men whom David had, who
+              strengthened themselves with him in his kingdom{" "}
+            </div>
+            <a
+              className="border border-[#252525] py-4 px-6 mt-5 hover:bg-gray-500 hover:border-gray-500 hover:text-white"
+              href="http://isaiahwealthministries.org/g20"
+              target="_blank"
+            >
+              {" "}
+              Learn More{" "}
+            </a>
+          </div>
         </div>
       </div>
 
-      <div className="youGenius py-14 px-4 bg-[#252525] text-white">
+      <div className="youGenius py-8 md:py-[5vw] px-[5vw] bg-[#252525] text-white">
         <div
-          className="pb-2 text-[#efd142] text-[1.05rem] font-bold"
+          className="pb-2 text-[#efd142] md:leading-tight text-[1.05rem] lg:text-[18px] xl:text-[22px] font-bold"
           data-aos="fade-up"
           data-aos-duration="800"
         >
@@ -398,7 +412,7 @@ export default function Home() {
           BECOME A PART OF{" "}
         </div>
         <div
-          className="pb-5 text-white text-[2.1rem] font-bold w-full leading-tight"
+          className="pb-5 text-white text-[2.1rem] lg:text-[40px] xl:text-[48px] font-bold w-full leading-tight"
           data-aos="fade-up"
           data-aos-duration="800"
         >
@@ -406,7 +420,7 @@ export default function Home() {
           YOU GENIUS CLUB{" "}
         </div>
         <div
-          className="border-t-2 mb-14 text-[0.935rem] border-[#efd142] content py-5 leading-loose text-justify text-white"
+          className="border-t-2 mb-14 text-[0.935rem] lg:text-[16px] border-[#efd142] content py-5 leading-loose text-justify text-white"
           data-aos="fade-up"
           data-aos-duration="800"
         >
@@ -420,7 +434,7 @@ export default function Home() {
           whole. It adopts the ABJ scheme in achieving this.
         </div>
         <a
-          className="bg-transparent border-2 border-white p-5 py-4"
+          className="bg-transparent border-2 border-white p-5 py-4 hover:bg-white hover:text-black"
           data-aos="fade-up"
           data-aos-duration="800"
           href="https://forms.gle/4VSqBMBXJYHCP2rK7"
@@ -453,7 +467,7 @@ export default function Home() {
           <br /> from Our Prophet
         </div>
         <a
-          className="text-white text-xl border-2 border-white py-3 px-5 mt-10"
+          className="text-white text-xl border-2 border-white py-3 px-5 mt-10 hover:bg-white hover:text-black"
           data-aos="fade-up"
           data-aos-duration="800"
           href="https://isaiahwealthestore.org/"
@@ -490,10 +504,11 @@ export default function Home() {
           </div>
           <div> gospelpillarscampus@gmail.com </div>
         </div>
-        <div className="flex justify-between w-[65%] mx-auto mt-6 py-2 text-2xl">
+        <div className="flex justify-between mx-auto mt-6 py-2 text-2xl">
           <a
             href="https://web.facebook.com/isaiahwealthministries"
             target="_blank"
+            className="mr-[15px]"
           >
             {" "}
             <BsFacebook />{" "}
@@ -501,6 +516,7 @@ export default function Home() {
           <a
             href="https://twitter.com/isaiahwealthmin?t=HnTGhOrkf6Ol_PWJ8b-nuA&s=09"
             target="_blank"
+            className="mr-[15px]"
           >
             {" "}
             <BsTwitter />{" "}
@@ -508,6 +524,7 @@ export default function Home() {
           <a
             href="https://youtube.com/c/IsaiahWealthMinistries"
             target="_blank"
+            className="mr-[15px]"
           >
             {" "}
             <BsYoutube />{" "}
@@ -515,6 +532,7 @@ export default function Home() {
           <a
             href="https://instagram.com/isaiahwealthministries?utm_medium=copy_link"
             target="_blank"
+            className="mr-[15px]"
           >
             {" "}
             <BsInstagram />{" "}
@@ -522,6 +540,7 @@ export default function Home() {
           <a
             href="https://www.linkedin.com/in/isaiahwealthministries/"
             target="_blank"
+            className="mr-[15px]"
           >
             {" "}
             <BsLinkedin />{" "}
@@ -529,6 +548,7 @@ export default function Home() {
           <a
             href="https://www.pinterest.com/isaiahwealthministries/"
             target="_blank"
+            className="mr-[15px]"
           >
             {" "}
             <BsPinterest />{" "}
