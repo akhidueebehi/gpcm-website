@@ -10,7 +10,7 @@ export default function ChapterItem({ name, address, contact, chapterPic }) {
       data-aos="fade-up"
       data-aos-duration="800"
     >
-      <div className="w-full md:w-[40vw] lg:w-[500px] h-[240px] md:h-[28vw] lg:h-[300px] md:mr-[5vw] lg:mr-[8vw] overflow-hidden shadow-sm shadow-black">
+      <div className="w-full md:w-[40vw] lg:w-[500px] h-[210px] md:h-[28vw] lg:h-[300px] md:mr-[5vw] lg:mr-[8vw] overflow-hidden shadow-sm shadow-black">
         <Fade
           autoplay={true}
           infinite={true}
