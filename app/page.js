@@ -27,6 +27,8 @@ import { AiOutlinePhone } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
 import Link from "next/link";
 import { Great_Vibes } from "next/font/google";
+import Header from "./header";
+import Footer from "./footer";
 
 const greatVibes = Great_Vibes({
   weight: "400",
@@ -35,86 +37,12 @@ const greatVibes = Great_Vibes({
 });
 
 export default function Home() {
-  const [hamOpen, setHamOpen] = useState(false);
   useEffect(() => {
     AOS.init();
   }, []);
   return (
     <main className="relative overflow-hidden">
-      <div className="header monts w-full absolute top-0 py-[24px] px-[5vw] z-30">
-        <div className="flex w-full justify-between items-center">
-          <div className="nav-brand w-[148px] h-[37px] md:w-[216px] md:h-[52px] xl:w-[280px] xl:h-[72px] z-50 relative">
-            <Image src="/images/gpcfLogo.png" fill alt="gpcfLogo" />
-          </div>
-          <div
-            className="Hamburger lg:hidden flex flex-col relative z-50"
-            onClick={() => {
-              setHamOpen(!hamOpen);
-            }}
-          >
-            <div
-              className={
-                hamOpen
-                  ? "ham1Open"
-                  : "bg-white w-6 h-[3px] my-[3px] rounded transition-all duration-300"
-              }
-            ></div>
-            <div
-              className={
-                hamOpen
-                  ? "ham2Open"
-                  : "bg-white w-7 h-[3px] my-[3px] rounded transition-all duration-300"
-              }
-            ></div>
-            <div
-              className={
-                hamOpen
-                  ? "ham3Open"
-                  : "bg-white w-3 h-[3px] my-[3px] rounded transition-all duration-300"
-              }
-            ></div>
-          </div>
-          <div
-            className={`menu text-white absolute lg:right-[5vw] flex flex-col lg:flex-row w-[100%] lg:w-auto h-[100vh] lg:h-auto top-0 text-xl py-[18vh] lg:py-[24px] bg-[rgba(0,0,0,0.9)] lg:bg-transparent transition-all duration-300 ${
-              hamOpen ? "right-[0]" : "right-[100%]"
-            }`}
-          >
-            <Link
-              href="/"
-              className="border-b-5 border-[rgba(255,255,255,0.1)] lg:border-t-0 lg:border-b-0 lg:hover:border-b-[4px] lg:border-white py-5 px-5 lg:py-0 lg:px-0 lg:mx-5 lg:my-5 border-t"
-              onClick={() => setHamOpen(false)}
-            >
-              {" "}
-              Home{" "}
-            </Link>
-            <Link
-              href="#about"
-              className="border-b border-[rgba(255,255,255,0.1)] lg:border-t-0 lg:border-b-0 lg:hover:border-b-[4px] lg:border-white lg:py-0 lg:px-0 lg:mx-5 lg:my-5 py-5 px-5"
-              onClick={() => setHamOpen(false)}
-            >
-              {" "}
-              About{" "}
-            </Link>
-
-            <Link
-              href="/chapters"
-              className="border-b border-[rgba(255,255,255,0.1)] lg:border-t-0 lg:border-b-0 lg:hover:border-b-[4px] lg:border-white lg:py-0 lg:px-0 lg:mx-5 lg:my-5 py-5 px-5"
-              onClick={() => setHamOpen(false)}
-            >
-              {" "}
-              Chapter Listings{" "}
-            </Link>
-            <Link
-              href="#contact"
-              className="border-b border-[rgba(255,255,255,0.1)] lg:border-t-0 lg:border-b-0 lg:hover:border-b-[4px] lg:border-white lg:py-0 lg:px-0 lg:mx-5 lg:my-5 py-5 px-5"
-              onClick={() => setHamOpen(false)}
-            >
-              {" "}
-              Contact{" "}
-            </Link>
-          </div>
-        </div>
-      </div>
+      <Header/>
 
       <div className="heroSection relative h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[100vh] z-0">
         <div className="overlay w-full h-full z-10"></div>
@@ -478,83 +406,7 @@ export default function Home() {
         </a>
       </div>
 
-      <div
-        className="contactUs bg-[#252525] text-white flex flex-col justify-center items-center text-center py-10 gap-4"
-        id="contact"
-      >
-        <div
-          className="font-bold text-2xl monts"
-          data-aos="fade-up"
-          data-aos-duration="800"
-        >
-          {" "}
-          CONTACT US{" "}
-        </div>
-        <div className="text-lg pt-1 flex items-center justify-center text-center">
-          <div>
-            {" "}
-            <AiOutlinePhone />{" "}
-          </div>
-          <div> +2347016908718 </div>
-        </div>
-        <div className="text-base flex items-center justify-center gap-2 text-center">
-          <div>
-            {" "}
-            <AiOutlineMail />{" "}
-          </div>
-          <div> gospelpillarscampus@gmail.com </div>
-        </div>
-        <div className="flex justify-between mx-auto mt-6 py-2 text-2xl">
-          <a
-            href="https://web.facebook.com/isaiahwealthministries"
-            target="_blank"
-            className="mr-[15px]"
-          >
-            {" "}
-            <BsFacebook />{" "}
-          </a>
-          <a
-            href="https://twitter.com/isaiahwealthmin?t=HnTGhOrkf6Ol_PWJ8b-nuA&s=09"
-            target="_blank"
-            className="mr-[15px]"
-          >
-            {" "}
-            <BsTwitter />{" "}
-          </a>
-          <a
-            href="https://youtube.com/c/IsaiahWealthMinistries"
-            target="_blank"
-            className="mr-[15px]"
-          >
-            {" "}
-            <BsYoutube />{" "}
-          </a>
-          <a
-            href="https://instagram.com/isaiahwealthministries?utm_medium=copy_link"
-            target="_blank"
-            className="mr-[15px]"
-          >
-            {" "}
-            <BsInstagram />{" "}
-          </a>
-          <a
-            href="https://www.linkedin.com/in/isaiahwealthministries/"
-            target="_blank"
-            className="mr-[15px]"
-          >
-            {" "}
-            <BsLinkedin />{" "}
-          </a>
-          <a
-            href="https://www.pinterest.com/isaiahwealthministries/"
-            target="_blank"
-            className="mr-[15px]"
-          >
-            {" "}
-            <BsPinterest />{" "}
-          </a>
-        </div>
-      </div>
+      <Footer/>
     </main>
   );
 }
