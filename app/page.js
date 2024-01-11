@@ -288,8 +288,8 @@ export default function Home() {
             <div>
               <Image src={hip} alt="hip" />
             </div>
-            <div className="font-bold"> HIP </div>
-            <div className="text-sm leading-loose">
+            <div className="font-bold lg:text-[18px]"> HIP </div>
+            <div className="text-sm lg:text-[18px] leading-loose">
               {" "}
               Higher Impact Partnership (HIP) is a financial commitment towards
               the spread of the gospel of Jesus Christ all around the world.{" "}
@@ -312,8 +312,8 @@ export default function Home() {
             <div>
               <Image src={g20} alt="g20" />
             </div>
-            <div className="font-bold"> G20 </div>
-            <div className="text-sm leading-loose">
+            <div className="font-bold lg:text-[18px]"> G20 </div>
+            <div className="text-sm leading-loose lg:text-[18px]">
               {" "}
               These also are the chief of the mighty men whom David had, who
               strengthened themselves with him in his kingdom{" "}
