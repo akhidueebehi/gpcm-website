@@ -9,6 +9,7 @@ export default function ChapterItem({ name, address, contact, chapterPic }) {
       className="chapter px-[5vw] py-[5vw] text-[#252525] flex flex-col md:flex-row items-center justify-center shadow-xl my-4 mx-[5vw] rounded-lg bg-white"
       data-aos="fade-up"
       data-aos-duration="800"
+      key={name}
     >
       <div className="w-full md:w-[40vw] lg:w-[500px] h-[210px] md:h-[28vw] lg:h-[300px] md:mr-[5vw] lg:mr-[8vw] overflow-hidden shadow-sm shadow-black">
         <Fade
@@ -21,7 +22,7 @@ export default function ChapterItem({ name, address, contact, chapterPic }) {
         >
           {chapterPic?.map((p) => (
             <div> 
-                <Image src={p}/>
+                <Image src={p} alt="chapterPic"/>
             </div>
           ))}
         </Fade>
