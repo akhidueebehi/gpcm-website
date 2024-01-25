@@ -21,7 +21,7 @@ export default function ChapterItem({ name, address, contact, chapterPic }) {
           indicators={false}
         >
           {chapterPic?.map((p) => (
-            <div> 
+            <div key={p.toString()}> 
                 <Image src={p} alt="chapterPic"/>
             </div>
           ))}
@@ -34,7 +34,7 @@ export default function ChapterItem({ name, address, contact, chapterPic }) {
         <div className="address py-6 text-[16px] lg:text-[18px]">
           <div className="font-bold mb-1">Address</div>
           {address.map((a) => (
-            <div> {a} </div>
+            <div key={a}> {a} </div>
           ))}
         </div>
         {/* <div className="daysOfServices pb-5">
@@ -48,7 +48,7 @@ export default function ChapterItem({ name, address, contact, chapterPic }) {
         <div className="contact lg:text-[18px]">
           <div className="font-bold mb-1">Contact</div>
           {contact?.map((c) => (
-            <div> {c} </div>
+            <div key={c}> {c} </div>
           ))}
         </div>
       </div>

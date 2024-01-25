@@ -347,17 +347,17 @@ export default function Home() {
           data-aos-duration="800"
         >
           {books.slice(1, 2).map((book) => (
-            <div className="w-[23vw] h-[30vw] relative md:w-[18vw] md:h-[22vw] lg:w-[16vw] lg:h-[22vw] mr-[5%]">
+            <div key="bk1" className="w-[23vw] h-[30vw] relative md:w-[18vw] md:h-[22vw] lg:w-[16vw] lg:h-[22vw] mr-[5%]">
               <Image src={book.image} fill alt={book.name} className="" />
             </div>
           ))}
           {books.slice(0, 1).map((book) => (
-            <div className="w-[25vw] h-[33vw] relative md:w-[20vw] md:h-[26vw] lg:w-[18vw] lg:h-[25vw] mr-[5%]">
+            <div key="bk2" className="w-[25vw] h-[33vw] relative md:w-[20vw] md:h-[26vw] lg:w-[18vw] lg:h-[25vw] mr-[5%]">
               <Image src={book.image} fill alt={book.name} className="" />
             </div>
           ))}
           {books.slice(2, 3).map((book) => (
-            <div className="w-[23vw] h-[30vw] relative md:w-[18vw] md:h-[22vw] lg:w-[16vw] lg:h-[22vw]">
+            <div key="bk3" className="w-[23vw] h-[30vw] relative md:w-[18vw] md:h-[22vw] lg:w-[16vw] lg:h-[22vw]">
               <Image src={book.image} fill alt={book.name} className="" />
             </div>
           ))}

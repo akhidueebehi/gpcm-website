@@ -61,7 +61,7 @@ export default function Chapters() {
             fellowship.name.includes(searchInput.toLocaleUpperCase())
           )
           .map((d) => (
-            <ChapterItem name={d.name} address={d.address} contact={d.contact} chapterPic={d.chapterPics}/>
+            <ChapterItem key={d.name} name={d.name} address={d.address} contact={d.contact} chapterPic={d.chapterPics}/>
           ))}
       </div>
       <Footer/>
