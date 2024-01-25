@@ -9,14 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.26.0",
     "aos": "^3.0.0-beta.6",
     "babel-preset-es2015": "^6.24.1",
     "eslint": "8.43.0",
     "next": "13.4.6",
+    "next-sanity": "^7.0.12",
+    "next-sanity-image": "^6.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
-    "react-slideshow-image": "^4.3.0"
+    "react-slideshow-image": "^4.3.0",
+    "sanity": "^3.26.0",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@types/node": "20.3.1",

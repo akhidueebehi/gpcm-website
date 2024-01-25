@@ -6,29 +6,15 @@ import "./globals.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import aboutImage from "../public/images/aboutImage.jpg";
-import update1 from "../public/images/update1.jpg";
-import miracleJesusBenin from "../public/images/miracleJesusBenin.jpg";
-import miracleJesusLagos from "../public/images/miracleJesusLagos.jpg";
-import smbc from "../public/images/smbc.jpg";
-import sunOfTrans from "../public/images/sundaysoftransformation.jpg";
 import prophet from "../public/images/Prophet-Isaiah-Wealth.jpg";
 import hip from "../public/images/hip.png";
 import g20 from "../public/images/g20.jpg";
-import bookImg from "../public/images/bookImage.jpg";
-import bookImg2 from "../public/images/bookImage2.jpg";
-import bookImg3 from "../public/images/bookImage3.jpg";
-import { BsFacebook } from "react-icons/bs";
-import { BsTwitter } from "react-icons/bs";
-import { BsYoutube } from "react-icons/bs";
-import { BsInstagram } from "react-icons/bs";
-import { BsLinkedin } from "react-icons/bs";
-import { BsPinterest } from "react-icons/bs";
-import { AiOutlinePhone } from "react-icons/ai";
-import { AiOutlineMail } from "react-icons/ai";
 import Link from "next/link";
 import { Great_Vibes } from "next/font/google";
 import Header from "./header";
 import Footer from "./footer";
+import { getProjects } from "../sanity/sanity-utils";
+import { getBooks } from "../sanity/books-utils";
 
 const greatVibes = Great_Vibes({
   weight: "400",
@@ -37,12 +23,28 @@ const greatVibes = Great_Vibes({
 });
 
 export default function Home() {
+  const [event, setEvent] = useState([]);
+  const [books, setBooks] = useState([]);
+
   useEffect(() => {
     AOS.init();
+    const fetchData = async () => {
+      const data = await getProjects();
+      setEvent(data);
+    };
+
+    const fetchBooks = async () => {
+      const data = await getBooks();
+      setBooks(data);
+    };
+
+    fetchData().catch(console.error);
+    fetchBooks().catch(console.error);
   }, []);
+
   return (
     <main className="relative overflow-hidden">
-      <Header/>
+      <Header />
 
       <div className="heroSection relative h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[100vh] z-0">
         <div className="overlay w-full h-full z-10"></div>
@@ -128,62 +130,26 @@ export default function Home() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-items-center items-center my-16 ">
-          <div
-            className="max-w-[80%] mb-16"
-            data-aos="fade-up"
-            data-aos-duration="800"
-          >
-            <div className="text-white text-[1.2rem] font-bold pb-2">JUL 4</div>
-            <Image src={smbc} alt="update4" className="updateImg" />
-          </div>
-          <div
-            className="max-w-[80%] mb-16"
-            data-aos="fade-up"
-            data-aos-duration="800"
-          >
-            <div className="text-white text-[1.2rem] font-bold pb-2">
-              JUL 29
+          {event.map((event) => (
+            <div
+              key={event._id}
+              className="w-[80%] h-[200px] mb-16 relative"
+              data-aos="fade-up"
+              data-aos-duration="800"
+            >
+              <div className="text-white text-[1.2rem] font-bold pb-2">
+                {event.date}
+              </div>
+              <div className="relative w-full h-[180px] lg:h-[200px]">
+                <Image
+                  src={event.image}
+                  fill
+                  alt={event.date}
+                  className="updateImg"
+                />
+              </div>
             </div>
-            <Image src={sunOfTrans} alt="update4" className="updateImg" />
-          </div>
-          <div
-            className="max-w-[80%] mb-16"
-            data-aos="fade-up"
-            data-aos-duration="800"
-          >
-            <div className="text-white text-[1.2rem] font-bold pb-2">
-              AUG 11
-            </div>
-            <Image
-              src={miracleJesusLagos}
-              alt="update4"
-              className="updateImg"
-            />
-          </div>
-          <div
-            className="max-w-[80%] mb-16"
-            data-aos="fade-up"
-            data-aos-duration="800"
-          >
-            <div className="text-white text-[1.2rem] font-bold pb-2">
-              SEPT 22
-            </div>
-            <Image
-              src={miracleJesusBenin}
-              alt="update4"
-              className="updateImg"
-            />
-          </div>
-          <div
-            className="max-w-[80%] mb-16"
-            data-aos="fade-up"
-            data-aos-duration="800"
-          >
-            <div className="text-white text-[1.2rem] font-bold pb-2">
-              NOV 11
-            </div>
-            <Image src={update1} alt="update1" className="updateImg" />
-          </div>
+          ))}
         </div>
       </div>
 
@@ -376,13 +342,25 @@ export default function Home() {
 
       <div className="latestResources flex flex-col items-center justify-center px-4 py-20">
         <div
-          className="flex justify-center  w-full items-center"
+          className="flex justify-center w-full items-center"
           data-aos="fade-up"
           data-aos-duration="800"
         >
-          <Image src={bookImg2} alt="bookimg" className="w-[25%] mr-4" />
-          <Image src={bookImg} alt="bookimg" className="w-[30%]" />
-          <Image src={bookImg3} alt="bookimg" className="w-[25%] ml-4" />
+          {books.slice(1, 2).map((book) => (
+            <div className="w-[23vw] h-[30vw] relative md:w-[18vw] md:h-[22vw] lg:w-[16vw] lg:h-[22vw] mr-[5%]">
+              <Image src={book.image} fill alt="bookimg" className="" />
+            </div>
+          ))}
+          {books.slice(0, 1).map((book) => (
+            <div className="w-[25vw] h-[33vw] relative md:w-[20vw] md:h-[26vw] lg:w-[18vw] lg:h-[25vw] mr-[5%]">
+              <Image src={book.image} fill alt="bookimg" className="" />
+            </div>
+          ))}
+          {books.slice(2, 3).map((book) => (
+            <div className="w-[23vw] h-[30vw] relative md:w-[18vw] md:h-[22vw] lg:w-[16vw] lg:h-[22vw]">
+              <Image src={book.image} fill alt="bookimg" className="" />
+            </div>
+          ))}
         </div>
         <div
           className="text-white font-semibold monts text-[1.5rem] text-center mt-10"
@@ -406,7 +384,7 @@ export default function Home() {
         </a>
       </div>
 
-      <Footer/>
+      <Footer />
     </main>
   );
 }
